@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 // import store from "@services/reducers";
 import { Reset } from "styled-reset";
 import { ToastContainer } from "react-toastify";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 import GlobalStyle from "./GlobalStyle";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
@@ -17,7 +19,9 @@ root.render(
     <BrowserRouter>
       <Reset />
       <GlobalStyle />
+      <Header />
       <App />
+      <Footer />
       <ToastContainer />
     </BrowserRouter>
     {/* </Provider> */}
