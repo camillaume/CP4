@@ -24,6 +24,13 @@ class IssueManager extends AbstractManager {
       [issue.title, issue.id]
     );
   }
+
+  findAllIssues(id) {
+    return this.connection.query(
+      `select i.*, s.name as stateName from  ${IssueManager.table} i LEFT JOIN state s on i.state_id = s.id where collection_id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = IssueManager;

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-// import { toast } from "react-toastify";
+import { useState } from "react";
+import { toast } from "react-toastify";
 import axios from "axios";
 import SCollectionForm from "./style";
 
@@ -9,7 +9,7 @@ export default function CollectionForm() {
     author: "",
     img: "",
     description: "",
-    userId: "",
+    userId: 1,
   });
 
   const hChange = (evt) => {
@@ -23,29 +23,28 @@ export default function CollectionForm() {
       .post(`${import.meta.env.VITE_BACKEND_URL}/collections`, formData)
       .then(({ data }) => {
         console.log(data);
+        toast.success("Félicitations, votre collection est créée", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch(() => {
+        toast.error("Une erreur s'est produite", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
-    // toast.success("Félicitations, votre compte est créé", {
-    //   position: "bottom-center",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
-    // navigate("/loterie");
   };
-  //     .catch(() => {
-  //       toast.error("Une erreur s'est produite", {
-  //         position: "bottom-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //       });
-  // });
 
   return (
     <SCollectionForm action="" onSubmit={hSubmit} className="form">

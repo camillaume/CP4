@@ -15,12 +15,12 @@ class IssueController {
 
   static read = (req, res) => {
     models.issue
-      .find(req.params.id)
+      .findAllIssues(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
-          res.sendStatus(404);
+          res.status(404).send("Oups pour toi");
         } else {
-          res.send(rows[0]);
+          res.send(rows);
         }
       })
       .catch((err) => {
