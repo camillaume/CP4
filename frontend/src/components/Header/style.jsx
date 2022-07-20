@@ -15,7 +15,7 @@ export default styled.header`
     display: none;
   }
   @media screen and (min-width: 800px) {
-    height: 22vh;
+    height: 24vh;
     h1 {
       font-size: 5rem;
       vertical-align: middle;

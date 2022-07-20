@@ -18,7 +18,9 @@ router.delete("/items/:id", ItemController.delete);
 router.get("/states", StateController.browse);
 
 router.post("/issues", IssueController.add);
+router.get("/issues/:id", IssueController.read);
 
 router.post("/collections", CollectionController.add);
+router.get("/collections/:id", CollectionController.read);
 
 module.exports = router;

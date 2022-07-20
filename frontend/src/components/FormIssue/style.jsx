@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export default styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   fieldset {
     padding-block-start: 0.35em;
     padding-inline-start: 0.75em;
