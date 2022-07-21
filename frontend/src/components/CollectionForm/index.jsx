@@ -22,7 +22,7 @@ export default function CollectionForm() {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/collections`, formData)
       .then(({ data }) => {
-        console.log(data);
+        console.warn(data);
         toast.success("Félicitations, votre collection est créée", {
           position: "bottom-center",
           autoClose: 5000,
