@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CollectionCard from "@components/CollectionCard";
+import CollectionForm from "@components/CollectionForm";
 import SCollectionDisplay from "./style";
 
 export default function CollectionDisplay() {
+  const [affichage, setAffichage] = useState(false);
   const [collections, setCollections] = useState("");
   useEffect(() => {
     axios
@@ -12,12 +14,19 @@ export default function CollectionDisplay() {
         setCollections(data);
       });
   }, []);
-
   if (!collections.length) {
     return null;
   }
   return (
     <SCollectionDisplay>
+      <input
+        type="button"
+        value="Nouvelle collection"
+        onClick={() => {
+          setAffichage(true);
+        }}
+      />
+      {affichage ? <CollectionForm /> : null}
       <h2>Tes collections :</h2>
       {collections.map((collection) => {
         return <CollectionCard key={collection.id} collection={collection} />;

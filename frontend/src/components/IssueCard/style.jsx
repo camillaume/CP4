@@ -5,7 +5,7 @@ export default styled.article`
     display: flex;
     flex-wrap: wrap;
   }
-  border: 2px solid var(--orange);
+  border: 2px solid var(--middle-green);
   width: 70vw;
   aspect-ratio: 3/4;
   margin: 1em auto;

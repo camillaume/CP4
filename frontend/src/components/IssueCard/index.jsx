@@ -1,23 +1,20 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import SIssueCard from "./style";
 
 export default function IssueCard({ issue }) {
   return (
     <SIssueCard>
-      <Link to={`/issue/${issue.id}`}>
-        <title>{issue.number}</title>
-        <figure>
-          <picture>
-            <img src={issue.img} alt="" />
-          </picture>
-        </figure>
-        <h3>{issue.title}</h3>
-        <h4>{issue.author}</h4>
-        <p>{issue.year}</p>
-        <p>{issue.stateName}</p>
-        <p>{issue.description}</p>
-      </Link>
+      <title>{issue.number}</title>
+      <figure>
+        <picture>
+          <img src={issue.img} alt="" />
+        </picture>
+      </figure>
+      <h3>{issue.title}</h3>
+      <h4>{issue.author}</h4>
+      <p>{issue.year}</p>
+      <p>{issue.stateName}</p>
+      <p>{issue.description}</p>
     </SIssueCard>
   );
 }

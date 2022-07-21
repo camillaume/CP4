@@ -72,16 +72,13 @@ export default function Search() {
           })
         : null}
       {button && (
-        <>
-          <p>Tu ne l'as pas encore!</p>
-          <input
-            type="button"
-            value="Veux tu l'acheter?"
-            onClick={() => {
-              setAffichage(true);
-            }}
-          />
-        </>
+        <input
+          type="button"
+          value="Veux tu l'acheter?"
+          onClick={() => {
+            setAffichage(true);
+          }}
+        />
       )}
       {affichage ? (
         <FormIssue numero={formData.number} collecId={formData.collectionId} />

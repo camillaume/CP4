@@ -5,15 +5,12 @@ export default styled.section`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 0px;
-  gap: 4px;
+
   input {
+    width: 50vw;
     box-sizing: border-box;
-    width: 345px;
-    height: 48px;
-    border: 1px solid #071540;
+    border: 1px solid var(--middle-green);
     border-radius: 6px;
-    /* Inside auto layout */
     flex: none;
     order: 1;
     align-self: stretch;
@@ -29,5 +26,17 @@ export default styled.section`
     gap: 4px;
   }
   @media screen and (min-width: 800px) {
+    select {
+      margin: 1rem auto;
+      height: 4rem;
+      border: 2px solid var(--middle-green);
+      color: var(--main-color);
+    }
+    input {
+      margin: 1rem auto;
+      height: 4rem;
+      border: 2px solid var(--middle-green);
+      color: var(--main-color);
+    }
   }
 `;
