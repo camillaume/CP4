@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
+import PropTypes from "prop-types";
 import SFormIssue from "./style";
 
-export default function FormIssue() {
+export default function FormIssue({ collecId }) {
   const [states, setStates] = useState("");
   const [formData, setFormData] = useState({
     number: "",
@@ -12,8 +13,10 @@ export default function FormIssue() {
     year: "",
     img: "",
     description: "",
+    collectionId: collecId,
     state: "",
   });
+
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_BACKEND_URL}/states`).then(({ data }) => {
       setStates(data);
@@ -29,31 +32,29 @@ export default function FormIssue() {
     evt.preventDefault();
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/issues`, formData)
-      .then(({ data }) => {
-        console.warn(data);
+      .then(() => {
+        toast.success("Félicitations, le numéro a été ajouté à ta collection", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      })
+      .catch(() => {
+        toast.error("Une erreur s'est produite", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
-    // toast.success("Félicitations, votre compte est créé", {
-    //   position: "bottom-center",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
-    // navigate("/loterie");
   };
-  //     .catch(() => {
-  //       toast.error("Une erreur s'est produite", {
-  //         position: "bottom-center",
-  //         autoClose: 5000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //       });
-  // });
 
   return (
     <SFormIssue action="" onSubmit={hSubmit} className="form">
@@ -115,3 +116,9 @@ export default function FormIssue() {
     </SFormIssue>
   );
 }
+FormIssue.propTypes = {
+  collecId: PropTypes.number,
+};
+FormIssue.defaultProps = {
+  collecId: "",
+};

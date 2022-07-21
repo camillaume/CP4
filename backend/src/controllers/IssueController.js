@@ -29,6 +29,25 @@ class IssueController {
       });
   };
 
+  static readone = (req, res) => {
+    const number = parseInt(req.body.number, 10);
+    const collectionId = parseInt(req.body.collectionId, 10);
+    const { userId } = req.body;
+    models.issue
+      .findOne(number, collectionId, userId)
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.status(204).send("No");
+        } else {
+          res.send(rows);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static edit = (req, res) => {
     const issue = req.body;
 

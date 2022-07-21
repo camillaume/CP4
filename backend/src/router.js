@@ -19,6 +19,7 @@ router.get("/states", StateController.browse);
 
 router.post("/issues", IssueController.add);
 router.get("/issues/:id", IssueController.read);
+router.post("/issues/bynumber/", IssueController.readone);
 
 router.post("/collections", CollectionController.add);
 router.get("/collections/:id", CollectionController.read);
