@@ -28,9 +28,11 @@ export default function CollectionDisplay() {
       />
       {affichage ? <CollectionForm /> : null}
       <h2>Tes collections :</h2>
-      {collections.map((collection) => {
-        return <CollectionCard key={collection.id} collection={collection} />;
-      })}
+      <div className="parent">
+        {collections.map((collection) => {
+          return <CollectionCard key={collection.id} collection={collection} />;
+        })}
+      </div>
     </SCollectionDisplay>
   );
 }

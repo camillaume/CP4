@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export default styled.form`
   fieldset {
-    padding-block-start: 0.35em;
+    /* padding-block-start: 0.35em;
     padding-inline-start: 0.75em;
     padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
+    padding-block-end: 0.625em; */
     border-width: 2px;
     border-style: groove;
     border-color: var(--blue-color);

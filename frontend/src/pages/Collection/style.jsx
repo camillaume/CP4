@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export default styled.section`
-  height: 84vh;
+  min-height: 84vh;
 
   @media screen and (min-width: 800px) {
-    height: 76vh;
+    min-height: 76vh;
   }
 `;

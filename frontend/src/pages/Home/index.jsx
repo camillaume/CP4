@@ -6,10 +6,7 @@ export default function Home() {
     <SHome>
       <div className="welcome">
         <h2>Bienvenue</h2>
-        <p>
-          Ici vous pourrez gérer rapidement et simplement vos collections de
-          livres
-        </p>
+        <p>Ici vous pourrez gérer rapidement et simplement vos collections</p>
       </div>
       <Search />
     </SHome>
