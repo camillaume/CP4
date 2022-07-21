@@ -34,7 +34,7 @@ export default function FormIssue({ collecId }) {
       .post(`${import.meta.env.VITE_BACKEND_URL}/issues`, formData)
       .then(() => {
         toast.success("Félicitations, le numéro a été ajouté à ta collection", {
-          position: "bottom-center",
+          position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -45,7 +45,7 @@ export default function FormIssue({ collecId }) {
       })
       .catch(() => {
         toast.error("Une erreur s'est produite", {
-          position: "bottom-center",
+          position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,

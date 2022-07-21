@@ -29,6 +29,22 @@ class CollectionController {
       });
   };
 
+  static findName = (req, res) => {
+    models.collection
+      .findCollectionName(parseInt(req.params.id, 10))
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static edit = (req, res) => {
     const collection = req.body;
 

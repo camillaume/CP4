@@ -21,16 +21,23 @@ export default function CollectionDisplay() {
     <SCollectionDisplay>
       <input
         type="button"
+        className="newElement"
         value="Nouvelle collection"
         onClick={() => {
-          setAffichage(true);
+          if (!affichage) {
+            setAffichage(true);
+          } else {
+            setAffichage(false);
+          }
         }}
       />
       {affichage ? <CollectionForm /> : null}
       <h2>Tes collections :</h2>
-      {collections.map((collection) => {
-        return <CollectionCard key={collection.id} collection={collection} />;
-      })}
+      <div className="parent">
+        {collections.map((collection) => {
+          return <CollectionCard key={collection.id} collection={collection} />;
+        })}
+      </div>
     </SCollectionDisplay>
   );
 }

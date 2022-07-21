@@ -1,30 +1,23 @@
 import styled from "styled-components";
 
 export default styled.form`
-  fieldset {
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
-    border-width: 2px;
-    border-style: groove;
-    border-color: var(--blue-color);
-    border-image: initial;
-    width: 70vw;
-  }
+  display: flex;
+  flex-direction: column;
   input {
-    width: 100%;
-    margin-top: 1.5rem;
-    height: 1.7rem;
-  }
-  input[type="submit"] {
-    background-color: var(--flashy-color);
-    border-color: var(--flashy-color);
-    border-radius: 15px;
+    width: 70vw;
+    height: 1.5rem;
+    box-sizing: border-box;
+    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    margin: 0.5rem auto;
+    color: var(--main-color);
   }
   @media screen and (min-width: 800px) {
-    fieldset {
-      width: 35vw;
+    input {
+      width: 60vw;
+      margin: 0.7rem auto;
+      height: 2rem;
+      border: 1px solid var(--main-color);
     }
   }
 `;

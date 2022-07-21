@@ -24,7 +24,7 @@ export default function CollectionForm() {
       .then(({ data }) => {
         console.warn(data);
         toast.success("Félicitations, votre collection est créée", {
-          position: "bottom-center",
+          position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -35,7 +35,7 @@ export default function CollectionForm() {
       })
       .catch(() => {
         toast.error("Une erreur s'est produite", {
-          position: "bottom-center",
+          position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -77,7 +77,7 @@ export default function CollectionForm() {
           name="description"
           onChange={hChange}
         />
-        <input type="submit" value="Créer une collection" />
+        <input type="submit" className="submit" value="Créer une collection" />
       </fieldset>
     </SCollectionForm>
   );

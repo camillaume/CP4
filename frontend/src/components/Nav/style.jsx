@@ -5,7 +5,6 @@ export default styled.nav`
     display: flex;
     justify-content: space-evenly;
     margin: auto;
-    /* height: 7vh; */
     border-top: 2px solid var(--middle-green);
     div {
       display: flex;

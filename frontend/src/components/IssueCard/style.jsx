@@ -14,18 +14,26 @@ export default styled.article`
   img {
     width: 100%;
   }
-  figure,
+  figure {
+    height: 70%;
+    overflow: hidden;
+  }
   div {
-    height: 50%;
+    height: 30%;
     overflow: hidden;
   }
   a {
     text-decoration: none;
     color: var(--main-color);
   }
+  h3,
+  h4,
+  p {
+    margin-top: 0.3rem;
+  }
 
   @media screen and (min-width: 800px) {
-    width: 15vw;
+    width: 20vw;
     margin: 1em;
   }
 `;

@@ -76,12 +76,21 @@ export default function Search() {
           type="button"
           value="Veux tu l'acheter?"
           onClick={() => {
-            setAffichage(true);
+            if (!affichage) {
+              setAffichage(true);
+            } else {
+              setAffichage(false);
+            }
           }}
         />
       )}
       {affichage ? (
-        <FormIssue numero={formData.number} collecId={formData.collectionId} />
+        <div classsname="prettier">
+          <FormIssue
+            numero={formData.number}
+            collecId={formData.collectionId}
+          />
+        </div>
       ) : null}
     </SSearch>
   );
