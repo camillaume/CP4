@@ -26,14 +26,14 @@ CREATE TABLE `collection` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `author` varchar(45) DEFAULT NULL,
-  `img` varchar(45) DEFAULT NULL,
-  `description` varchar(45) DEFAULT NULL,
+  `img` varchar(512) DEFAULT NULL,
+  `description` varchar(256) DEFAULT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`,`user_id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_collection_user_idx` (`user_id`),
   CONSTRAINT `fk_collection_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +42,7 @@ CREATE TABLE `collection` (
 
 LOCK TABLES `collection` WRITE;
 /*!40000 ALTER TABLE `collection` DISABLE KEYS */;
+INSERT INTO `collection` VALUES (5,'Test','','','Cherchons à voir si nous pouvons créer une collection!',1),(6,'Harry Potter','JK Rowling','https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Harry_Potter.jpg/1200px-Harry_Potter.jpg','',1),(7,'Dragon Ball - Francais','','https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/vdn_864w/2021/05/10/node_1001248/51312219/public/2021/05/10/B9726989900Z.1_20210510115351_000%2BGGOI3LTJE.1-0.jpg?itok=iJIKaFbA1620640438','',1);
 /*!40000 ALTER TABLE `collection` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +69,7 @@ CREATE TABLE `issue` (
   KEY `fk_issue_state1_idx` (`state_id`),
   CONSTRAINT `fk_issue_collection1` FOREIGN KEY (`collection_id`) REFERENCES `collection` (`id`),
   CONSTRAINT `fk_issue_state1` FOREIGN KEY (`state_id`) REFERENCES `state` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,6 +78,7 @@ CREATE TABLE `issue` (
 
 LOCK TABLES `issue` WRITE;
 /*!40000 ALTER TABLE `issue` DISABLE KEYS */;
+INSERT INTO `issue` VALUES (1,'2','Harry Potter et la chambre des secrets',NULL,NULL,NULL,NULL,6,2),(2,'5','Harry Potter et l\'ordre du phoenix',NULL,NULL,NULL,NULL,6,1),(3,'7','La Menace',NULL,NULL,NULL,NULL,7,3),(4,'28','Trunks',NULL,NULL,NULL,NULL,7,4);
 /*!40000 ALTER TABLE `issue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +121,7 @@ CREATE TABLE `user` (
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,6 +130,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Cam','cam@mail.com','azerty');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-20 14:28:50
+-- Dump completed on 2022-07-21  7:35:47

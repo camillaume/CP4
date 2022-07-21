@@ -30,7 +30,7 @@ export default function FormIssue() {
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/issues`, formData)
       .then(({ data }) => {
-        console.log(data);
+        console.warn(data);
       });
     // toast.success("Félicitations, votre compte est créé", {
     //   position: "bottom-center",
