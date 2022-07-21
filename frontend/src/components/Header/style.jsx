@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export default styled.header`
   height: 8vh;
+  a {
+    text-decoration: none;
+  }
   h1 {
     text-align: center;
     padding-top: 0.5rem;
