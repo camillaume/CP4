@@ -21,9 +21,14 @@ export default function CollectionDisplay() {
     <SCollectionDisplay>
       <input
         type="button"
+        className="newElement"
         value="Nouvelle collection"
         onClick={() => {
-          setAffichage(true);
+          if (!affichage) {
+            setAffichage(true);
+          } else {
+            setAffichage(false);
+          }
         }}
       />
       {affichage ? <CollectionForm /> : null}

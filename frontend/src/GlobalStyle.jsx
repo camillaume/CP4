@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.body`
+export default styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Aladin&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 

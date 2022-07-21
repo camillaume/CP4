@@ -8,8 +8,22 @@ import SIssueDisplay from "./style";
 export default function IssueDisplay() {
   const [affichage, setAffichage] = useState(false);
   const [issues, setIssues] = useState([]);
+  const [collectionName, setCollectionName] = useState("");
   const collectionId = useParams();
   const collectionIdNumber = parseInt(collectionId.id, 10);
+
+  useEffect(() => {
+    axios
+      .get(
+        `${
+          import.meta.env.VITE_BACKEND_URL
+        }/collections/name/${collectionIdNumber}`
+      )
+      .then(({ data }) => {
+        setCollectionName(data.name);
+      });
+  }, []);
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/issues/${collectionIdNumber}`)
@@ -20,32 +34,48 @@ export default function IssueDisplay() {
 
   if (!issues.length) {
     return (
-      <>
-        <input
-          type="button"
-          value="Nouveau numéro"
-          onClick={() => {
-            setAffichage(true);
-          }}
-        />
-        {affichage ? <FormIssue collecId={collectionIdNumber} /> : null}
-      </>
+      <SIssueDisplay>
+        <div className="void">
+          <h2>{`Tes Numéros de ${collectionName} :`}</h2>
+          <p>Ta collection est actuellement vide</p>
+          <input
+            type="button"
+            className="newElement"
+            value="Nouveau numéro"
+            onClick={() => {
+              if (!affichage) {
+                setAffichage(true);
+              } else {
+                setAffichage(false);
+              }
+            }}
+          />
+          {affichage ? <FormIssue collecId={collectionIdNumber} /> : null}
+        </div>
+      </SIssueDisplay>
     );
   }
   return (
     <SIssueDisplay>
       <input
         type="button"
+        className="newElement"
         value="Nouveau numéro"
         onClick={() => {
-          setAffichage(true);
+          if (!affichage) {
+            setAffichage(true);
+          } else {
+            setAffichage(false);
+          }
         }}
       />
       {affichage ? <FormIssue collecId={collectionIdNumber} /> : null}
-      <h2>Tes Numéros :</h2>
-      {issues.map((issue) => {
-        return <IssueCard key={issue.id} issue={issue} />;
-      })}
+      <h2>{`Tes Numéros de ${collectionName} :`}</h2>
+      <div className="parent">
+        {issues.map((issue) => {
+          return <IssueCard key={issue.id} issue={issue} />;
+        })}
+      </div>
     </SIssueDisplay>
   );
 }

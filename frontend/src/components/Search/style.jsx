@@ -16,7 +16,7 @@ export default styled.section`
   }
   @media screen and (min-width: 800px) {
     select {
-      margin: 1rem auto;
+      margin: 1.5rem auto;
       border-radius: 6px;
       height: 3rem;
       border: 2px solid var(--middle-green);

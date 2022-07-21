@@ -28,7 +28,7 @@ class IssueManager extends AbstractManager {
 
   findAllIssues(id) {
     return this.connection.query(
-      `select i.*, s.name as stateName from  ${IssueManager.table} i LEFT JOIN state s on i.state_id = s.id where collection_id = ?`,
+      `select i.*, s.name as stateName from  ${IssueManager.table} i LEFT JOIN state s on i.state_id = s.id where collection_id = ? ORDER BY number ASC`,
       [id]
     );
   }
