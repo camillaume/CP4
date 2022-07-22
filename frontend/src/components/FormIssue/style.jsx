@@ -3,6 +3,11 @@ import styled from "styled-components";
 export default styled.form`
   display: flex;
   flex-direction: column;
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   input {
     width: 70vw;
     height: 1.5rem;

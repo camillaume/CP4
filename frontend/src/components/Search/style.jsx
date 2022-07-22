@@ -10,10 +10,12 @@ export default styled.section`
     border: 1px solid var(--middle-green);
     border-radius: 6px;
     margin: auto;
+    margin-top: 0.8rem;
   }
   select {
     width: 70vw;
   }
+
   @media screen and (min-width: 800px) {
     select {
       margin: 1.5rem auto;
