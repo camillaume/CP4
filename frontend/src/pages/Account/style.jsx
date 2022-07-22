@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
 export default styled.section`
-  height: 84vh;
-
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  margin: auto;
+  text-align: center;
+  h2 {
+    padding: 2rem 0;
+  }
   @media screen and (min-width: 800px) {
-    height: 76vh;
+    min-height: 76vh;
+    width: 40vw;
   }
 `;

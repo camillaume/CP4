@@ -14,14 +14,22 @@ export default styled.article`
   img {
     width: 100%;
   }
-  figure,
+  figure {
+    height: 70%;
+    overflow: hidden;
+  }
   div {
-    height: 50%;
+    height: 30%;
     overflow: hidden;
   }
   a {
     text-decoration: none;
     color: var(--main-color);
+  }
+  h3,
+  h4,
+  p {
+    margin-top: 0.5rem;
   }
 
   @media screen and (min-width: 800px) {

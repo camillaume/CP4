@@ -7,10 +7,10 @@ export default styled.header`
   }
   h1 {
     text-align: center;
-    padding-top: 0.5rem;
+    padding-top: 0.7rem;
     color: var(--main-color);
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-family: var(--title-font);
     letter-spacing: 0rem;
   }

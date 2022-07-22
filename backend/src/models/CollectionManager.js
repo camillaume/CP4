@@ -29,6 +29,13 @@ class CollectionManager extends AbstractManager {
       [id]
     );
   }
+
+  findCollectionName(id) {
+    return this.connection.query(
+      `select name from  ${CollectionManager.table} where id = ?`,
+      [id]
+    );
+  }
 }
 
 module.exports = CollectionManager;

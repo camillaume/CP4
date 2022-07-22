@@ -1,21 +1,33 @@
 import styled from "styled-components";
 
 export default styled.section`
-  height: 84vh;
+  min-height: 84vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .welcome {
-    font-family: var(--title-font);
-    position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0.5rem auto;
+    line-height: 1.5em;
+    p {
+      padding-left: 0.5rem;
+    }
   }
   @media screen and (min-width: 800px) {
-    height: 76vh;
+    min-height: 76vh;
     .welcome {
-      font-family: var(--title-font);
-      margin: auto;
-      height: 5rem;
+      height: 3rem;
       width: 50vw;
-      font-size: 2rem;
+      font-size: 1.1rem;
       display: flex;
       flex-direction: column;
+      p {
+        padding-left: 0.5rem;
+      }
     }
   }
 `;
