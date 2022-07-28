@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CollectionCard from "@components/CollectionCard";
 import CollectionForm from "@components/CollectionForm";
+import ModifCollectionForm from "@components/ModifCollectionForm";
 import SCollectionDisplay from "./style";
 
 export default function CollectionDisplay() {
   const [affichage, setAffichage] = useState(false);
-  const [collections, setCollections] = useState("");
+  const [affichageForm, setAffichageForm] = useState(false);
+  const [collections, setCollections] = useState([]);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/collections/1`)
@@ -31,7 +33,21 @@ export default function CollectionDisplay() {
           }
         }}
       />
+      <input
+        type="button"
+        className="newElement"
+        value="Modifier une collection"
+        onClick={() => {
+          if (!affichageForm) {
+            setAffichageForm(true);
+          } else {
+            setAffichageForm(false);
+          }
+        }}
+        collections={collections}
+      />
       {affichage ? <CollectionForm /> : null}
+      {affichageForm ? <ModifCollectionForm collections={collections} /> : null}
       <h2>Tes collections :</h2>
       <div className="parent">
         {collections.map((collection) => {

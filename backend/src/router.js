@@ -24,5 +24,6 @@ router.post("/issues/bynumber/", IssueController.readone);
 router.post("/collections", CollectionController.add);
 router.get("/collections/:id", CollectionController.read);
 router.get("/collections/name/:id", CollectionController.findName);
+router.put("/collections", CollectionController.edit);
 
 module.exports = router;

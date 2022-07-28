@@ -18,8 +18,14 @@ class CollectionManager extends AbstractManager {
 
   update(collection) {
     return this.connection.query(
-      `update ${CollectionManager.table} set title = ? where id = ?`,
-      [collection.title, collection.id]
+      `update ${CollectionManager.table} set name = ?, author = ?, img = ?, description = ? where id = ?`,
+      [
+        collection.name,
+        collection.author,
+        collection.img,
+        collection.description,
+        collection.id,
+      ]
     );
   }
 

@@ -50,8 +50,6 @@ class CollectionController {
 
     // TODO validations (length, format...)
 
-    collection.id = parseInt(req.params.id, 10);
-
     models.collection
       .update(collection)
       .then(([result]) => {
