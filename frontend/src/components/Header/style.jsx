@@ -7,6 +7,7 @@ export default styled.header`
   }
   h1 {
     text-align: center;
+    font-family : var(--title-font)
     padding-top: 0.7rem;
     color: var(--main-color);
     font-weight: bold;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default styled.div`
+export default styled.body`
   @import url("https://fonts.googleapis.com/css2?family=Aladin&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
   --title-font: "Aladin", cursive;
   --default-font: "Montserrat", sans-serif;
